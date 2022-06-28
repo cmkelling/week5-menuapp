@@ -66,7 +66,7 @@ class Menu {
         `);
     }
 
-    showTypeMenuOptions() {
+    showTypeMenuOptions(typeInfo) {
         return prompt(`
         0) exit
         1) create new plant
