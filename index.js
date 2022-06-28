@@ -1,3 +1,9 @@
+/* This is a menu application to keep track of used plants, whether for a store, for a garden, or for house plants.
+This was inspired by a friend who loves to tell any guest all about each of her 50+ plants.*/
+
+
+
+// first class
 class Plant {
     constructor (commonName, scientificName, sunlight, water, climate) {
         this.commonName = commonName;
@@ -10,7 +16,7 @@ class Plant {
         return `${this.commonName} also known as ${this.scientificName} needs ${sunlight} and ${water} and lives in a ${climate} climate`;
     }
 }
-
+// second class, includes plant array.
 class TypeOfPlant {
     constructor (type) {
         this.type = type;
@@ -27,7 +33,7 @@ class TypeOfPlant {
         return `${this.type} has ${this.plant.length} plants.`;
     }
 }
-
+// starts application and creates options for the object. Class includes second array.
 class Menu {
     constructor() {
         this.typeOfPlant = [];
@@ -56,6 +62,8 @@ class Menu {
         }
         alert('Goodbye');
     }
+
+// the two types of menus used in the app. main menu shows up first and type menu appears when viewing a type of plant.    
     showMainMenuOptions() {
         return prompt(`
         0) exit
@@ -75,7 +83,7 @@ class Menu {
         ${typeInfo}
         `)
     }
-
+//displays the different types of plants entered and allows you to create a type of plant and view the type menu.
     displayTypes() {
         let typeString = '';
         for (let i = 0; i < this.typeOfPlant.length; i++) {
@@ -88,7 +96,7 @@ class Menu {
         let type = prompt('Enter name for new type of plants.');
         this.typeOfPlant.push(new TypeOfPlant(type));
     }
-
+// allows the user to view specific type once index is looked up and any plants in that type.
     viewType() {
         let index = prompt('Enter the index number of the type of plant you wish to view');
         if (index > -1 && index < this.typeOfPlant.length) {
@@ -118,7 +126,7 @@ class Menu {
         }
 
     }
-
+//creates new plant and allows user to put in important plant info
     createPlant() {
         let commonName = prompt('Enter common name of new plant: ');
         let scientificName = prompt('Enter scientific name of new plant: ');
@@ -128,7 +136,7 @@ class Menu {
         this.selectedType.plant.push(new Plant(commonName, scientificName, sunlight, water, climate));
 
     }
-
+//deletes plant
     deletePlant() {
         let index = prompt('Enter the index of the plant you wish to delete.');
         if (index > -1 && index < this.selectedType.plant.length) {
@@ -136,6 +144,6 @@ class Menu {
         }
     }
 }
-
+//runs application
 let menu = new Menu;
 menu.start();
