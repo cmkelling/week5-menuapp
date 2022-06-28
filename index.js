@@ -96,8 +96,8 @@ class Menu {
             let description = 'Type of Plant: ' + this.selectedType.type + '\n';
 
             for (let i = 0; i < this.selectedType.plant.length; i++) {
-                description += i + ') ' + this.selectedType.plant[i].type
-                + ' - ' + this.selectedType.plant[i].commonName + ' ' + this.selectedType.plant[i].scientificName + ' ' + this.selectedType.plant[i].sunlight + ' ' + this.selectedType.plant[i].water + ' ' + this.selectedType.plant[i].climate + '\n';
+                description += i + ') ' + this.selectedType.plant[i].commonName
+                + ' - ' + ' ' + this.selectedType.plant[i].scientificName + ', ' + this.selectedType.plant[i].sunlight + ', ' + this.selectedType.plant[i].water + ', ' + this.selectedType.plant[i].climate + '\n';
             }
 
             let selection = this.showTypeMenuOptions(description);
