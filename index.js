@@ -27,3 +27,33 @@ class TypeOfPlant {
         return `${this.type} has ${this.plants.length} plants.`;
     }
 }
+
+class Menu {
+    constructor() {
+        this.typeOfPlant = [];
+        this.selected = null;
+    }
+    start() {
+        let selection = this.showMainMenuOptions();
+        while (selection != 0) {
+            switch(selection) {
+                case '1':
+                    this.createType();
+                    break;
+                case '2':
+                    this.viewType();
+                    break;
+                case '3':
+                    this.deleteType();
+                    break;
+                case '4':
+                    this.displayTypes();
+                    break;
+                default:
+                    selection = 0;
+            }
+            selection = this.showMainMenuOptions();
+        }
+        alert('Goodbye');
+    }
+}
