@@ -56,4 +56,61 @@ class Menu {
         }
         alert('Goodbye');
     }
+    showMainMenuOptions() {
+        return prompt(`
+        0) exit
+        1) create new plant type
+        2) view plant type
+        3) delete plant type
+        4) display plant types
+        `);
+    }
+
+    showTypeMenuOptions() {
+        return prompt(`
+        0) exit
+        1) create new plant
+        2) delete plant
+        ---------------------
+        ${typeInfo}
+        `)
+    }
+
+    displayTypes() {
+        let typeString = '';
+        for (let i = 0; i < this.typeOfPlant.length; i++) {
+            typeString += i + ') ' + this.typeOfPlant[i].type + '\n'
+        }
+        alert(typeString)
+    }
+
+    createType() {
+        let type = prompt('Enter name for new type of plants.');
+        this.typeOfPlant.push(new TypeOfPlant(type));
+    }
+
+    viewType() {
+        let index = prompt('Enter the index number of the type of plant you wish to view');
+        if (index > -1 && index < this.typeOfPlant.length) {
+            this.selectedType = this.typeOfPlant[index];
+            let description = 'Type of Plant: ' + this.selectedType.type + '\n';
+
+            for (let i = 0; i < this.selectedType.plants.length; i++) {
+                description += i + ') ' + this.selectedType.plants[i].type
+                + ' - ' + this.selectedType.plants[i].scientificName + this.selectedType.plants[i].sunlight + this.selectedType.plants[i].water + this.selectedType.plants[i].climate + '\n';
+            }
+
+            let selection = this.showTeamMenuOptions(description);
+            switch (selection) {
+                case '1':
+                    this.createPlant;
+                    break;
+                case '2':
+                    this.deletePlant;
+                    break;
+                default:
+                    selection = 0
+            }
+        }
+    }
 }
