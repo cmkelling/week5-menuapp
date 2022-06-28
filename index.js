@@ -103,10 +103,10 @@ class Menu {
             let selection = this.showTypeMenuOptions(description);
             switch (selection) {
                 case '1':
-                    this.createPlant;
+                    this.createPlant();
                     break;
                 case '2':
-                    this.deletePlant;
+                    this.deletePlant();
             }
         }
     }
