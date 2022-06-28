@@ -18,13 +18,13 @@ class TypeOfPlant {
     }
     addPlant(plant) {
         if (plant instanceof Plant) {
-            this.plants.push(plant);
+            this.plant.push(plant);
         } else {
             throw new Error (`Argument is not a plant: ${plant}`);
         }
     }
     describe() {
-        return `${this.type} has ${this.plants.length} plants.`;
+        return `${this.type} has ${this.plant.length} plants.`;
     }
 }
 
@@ -107,9 +107,6 @@ class Menu {
                     break;
                 case '2':
                     this.deletePlant;
-                    break;
-                default:
-                    selection = 0
             }
         }
     }
@@ -128,14 +125,14 @@ class Menu {
         let sunlight = prompt('Enter amount of sunlight new plant requires: ');
         let water = prompt('Enter amount of water new plant requires: ');
         let climate = prompt('Enter what climate the new plant lives in: ');
-        this.selectedType.plants.push(new Plant(commonName, scientificName, sunlight, water, climate));
+        this.selectedType.plant.push(new Plant(commonName, scientificName, sunlight, water, climate));
 
     }
 
     deletePlant() {
         let index = prompt('Enter the index of the plant you wish to delete.');
-        if (index > -1 && index < this.selectedType.plants.length) {
-            this.selectedType.plants.splice(index, 1);
+        if (index > -1 && index < this.selectedType.plant.length) {
+            this.selectedType.plant.splice(index, 1);
         }
     }
 }
