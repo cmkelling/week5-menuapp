@@ -100,7 +100,7 @@ class Menu {
                 + ' - ' + this.selectedType.plant[i].scientificName + this.selectedType.plant[i].sunlight + this.selectedType.plant[i].water + this.selectedType.plant[i].climate + '\n';
             }
 
-            let selection = this.showTeamMenuOptions(description);
+            let selection = this.showTypeMenuOptions(description);
             switch (selection) {
                 case '1':
                     this.createPlant;
