@@ -113,4 +113,32 @@ class Menu {
             }
         }
     }
+
+    deleteType() {
+        let index = prompt('Enter the index of the type you would like to delete.');
+        if (index > -1 && index < this.typeOfPlant.length) {
+            this.typeOfPlant.splice(index, 1)
+        }
+
+    }
+
+    createPlant() {
+        let commonName = prompt('Enter common name of new plant: ');
+        let scientificName = prompt('Enter scientific name of new plant: ');
+        let sunlight = prompt('Enter amount of sunlight new plant requires: ');
+        let water = prompt('Enter amount of water new plant requires: ');
+        let climate = prompt('Enter what climate the new plant lives in: ');
+        this.selectedType.plants.push(new Plant(commonName, scientificName, sunlight, water, climate));
+
+    }
+
+    deletePlant() {
+        let index = prompt('Enter the index of the plant you wish to delete.');
+        if (index > -1 && index < this.selectedType.plants.length) {
+            this.selectedType.plants.splice(index, 1);
+        }
+    }
 }
+
+let menu = new Menu;
+menu.start();
